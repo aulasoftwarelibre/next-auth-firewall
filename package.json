@@ -17,6 +17,7 @@
     "build:watch": "tsc --watch",
     "lint": "eslint --fix src/ tests/",
     "prepare": "husky install",
+    "prepublishOnly": "yarn test:ci",
     "test": "jest --watchAll",
     "test:ci": "jest"
   },
@@ -28,6 +29,8 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^18.4.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "@types/jest": "^29.5.8",
     "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.11.0",
@@ -44,6 +47,7 @@
     "lint-staged": "^15.1.0",
     "prettier": "^3.1.0",
     "rimraf": "^5.0.5",
+    "semantic-release": "^22.0.8",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
@@ -107,6 +111,29 @@
     ]
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/**"
+    ],
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "dryRun": false,
+    "ci": true,
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
+      "@semantic-release/git",
+      "@semantic-release/changelog",
+      "@semantic-release/github"
+    ]
   }
 }
