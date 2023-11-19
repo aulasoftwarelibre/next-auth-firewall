@@ -1,5 +1,7 @@
 # RBAC NextAuth.js firewall
 
+⚠️ Warning: This is a Proof of Concept (PoC), and it is not production-ready. Use with caution and provide feedback for improvements. Thanks!
+
 This package is a plugin for [NextAuth](https://next-auth.js.org/) version 5 that adds a
 Role-Based Access Control (RBAC) authorization layer to your authentication setup. 
 The RBAC implementation is inspired by [Symfony](https://symfony.com).
