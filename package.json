@@ -1,6 +1,6 @@
 {
   "name": "@aulasoftwarelibre/next-auth-firewall",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Firewall for NextAuth",
   "type": "module",
   "repository": "https://github.com/aulasoftwarelibre/next-auth-firewall",
@@ -110,8 +110,14 @@
       "@commitlint/config-conventional"
     ],
     "rules": {
-      "body-max-line-length": [0, "always"],
-      "footer-max-line-length": [0, "always"]
+      "body-max-line-length": [
+        0,
+        "always"
+      ],
+      "footer-max-line-length": [
+        0,
+        "always"
+      ]
     }
   },
   "jest": {
