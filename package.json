@@ -1,6 +1,6 @@
 {
   "name": "@aulasoftwarelibre/next-auth-firewall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Firewall for NextAuth",
   "type": "module",
   "repository": "https://github.com/aulasoftwarelibre/next-auth-firewall",
