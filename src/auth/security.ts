@@ -20,11 +20,11 @@ class Security {
     this.accessMap = this.createAccessMap(config)
   }
 
-  async authorized(params: {
+  async authorized(parameters: {
     auth: Session | null
     request: Request | NextRequest
   }): Promise<boolean> {
-    const { auth, request } = params
+    const { auth, request } = parameters
     const { roles } = this.accessMap.pattern(request)
 
     if (!roles || roles.includes('PUBLIC_ACCESS')) {

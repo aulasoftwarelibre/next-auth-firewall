@@ -7,7 +7,10 @@ import { NextAuthFirewallConfig } from './types'
 
 export type * from './types'
 
-type AppRouteHandlers = Record<'POST', (req: NextRequest) => Promise<Response>>
+type AppRouteHandlers = Record<
+  'POST',
+  (request: NextRequest) => Promise<Response>
+>
 
 export interface NextAuthFirewallResult extends NextAuthResult {
   firewallHandler: AppRouteHandlers
@@ -18,7 +21,8 @@ export default function NextAuthFirewall(
 ): NextAuthFirewallResult {
   const { accessControl, callbacks = {}, ...rest } = config
 
-  const firewallHttpHandler = (req: NextRequest) => AuthFirewall(req, config)
+  const firewallHttpHandler = (request: NextRequest) =>
+    AuthFirewall(request, config)
 
   const nextAuth = NextAuth({
     callbacks: {

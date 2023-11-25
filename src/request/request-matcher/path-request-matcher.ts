@@ -13,6 +13,6 @@ export default class PathRequestMatcher implements RequestMatcherInterface {
   matches(request: Request | NextRequest): boolean {
     const url = new URL(request.url)
 
-    return !!url.pathname.match(this.pathname)
+    return this.pathname.test(url.pathname)
   }
 }

@@ -3,7 +3,7 @@ import { Session } from '@auth/core/types'
 const USER_PROVIDER_URL = `${process.env.AUTH_URL as string}/firewall/`
 
 export default async function rolesForSession(
-  auth: Session | null,
+  auth?: Session | null,
 ): Promise<string[]> {
   const email = auth?.user?.email
 

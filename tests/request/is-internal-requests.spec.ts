@@ -2,16 +2,16 @@ import { isInternalRequest } from '../../src/request/is-internal-request'
 import RequestExamples from '../features/request.examples'
 
 describe('is-internal-request', () => {
-  const env = process.env
+  const environment = process.env
 
   afterEach(() => {
-    process.env = env
+    process.env = environment
   })
 
   it('should returns true if request is internal', () => {
     // Arrange
     process.env = {
-      ...env,
+      ...environment,
       AUTH_SECRET: 'AUTH_SECRET',
     }
     const request = RequestExamples.internalAuthorized()
@@ -26,7 +26,7 @@ describe('is-internal-request', () => {
   it('should returns false if AUTH_SECRET is not configured', () => {
     // Arrange
     process.env = {
-      ...env,
+      ...environment,
     }
     const request = RequestExamples.internalAuthorized()
 
@@ -40,7 +40,7 @@ describe('is-internal-request', () => {
   it('should returns false if AUTH_SECRET is invalid', () => {
     // Arrange
     process.env = {
-      ...env,
+      ...environment,
       AUTH_SECRET: 'OTHER_AUTH_SECRET',
     }
     const request = RequestExamples.internalAuthorized()
@@ -55,7 +55,7 @@ describe('is-internal-request', () => {
   it('should returns false if request is external', () => {
     // Arrange
     process.env = {
-      ...env,
+      ...environment,
       AUTH_SECRET: 'AUTH_SECRET',
     }
     const request = RequestExamples.externalAuthorized()

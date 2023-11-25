@@ -9,7 +9,7 @@ interface AccessMapEntry {
 }
 
 interface AccessMapPattern {
-  roles: string[] | InternalRole[] | null
+  roles: string[] | InternalRole[]
 }
 
 export default class AccessMap {
@@ -32,6 +32,6 @@ export default class AccessMap {
       }
     }
 
-    return { roles: null }
+    return { roles: [] }
   }
 }

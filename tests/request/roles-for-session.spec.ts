@@ -26,7 +26,7 @@ describe('rolesForSession', () => {
 
   it('should return an empty array for an invalid session', async () => {
     // Arrange
-    const mockSession = null
+    const mockSession = undefined
 
     // Act
     const result = await rolesForSession(mockSession)

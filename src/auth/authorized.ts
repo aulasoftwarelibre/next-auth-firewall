@@ -9,6 +9,6 @@ export default function Authorized(config: NextAuthFirewallConfig) {
 
   const security = new Security({ accessControlRules })
 
-  return (params: { auth: Session | null; request: NextRequest }) =>
-    security.authorized(params)
+  return (parameters: { auth: Session | null; request: NextRequest }) =>
+    security.authorized(parameters)
 }

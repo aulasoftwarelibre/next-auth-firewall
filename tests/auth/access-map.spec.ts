@@ -50,6 +50,6 @@ describe('AccessMap', () => {
     const pattern = accessMap.pattern(request)
 
     // Assert
-    expect(pattern).toEqual({ roles: null })
+    expect(pattern).toEqual({ roles: [] })
   })
 })

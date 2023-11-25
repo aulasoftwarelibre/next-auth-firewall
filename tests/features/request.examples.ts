@@ -1,21 +1,11 @@
 import { NextRequest } from 'next/server'
 
-export default class RequestExamples {
-  static basic(path: string = '/', options: { method?: string } = {}) {
+const RequestExamples = {
+  basic: (path: string = '/', options: { method?: string } = {}) => {
     return new NextRequest(new URL(`http://internal${path}`), options)
-  }
+  },
 
-  static internalAuthorized() {
-    return new NextRequest(new URL('http://internal'), {
-      headers: {
-        authorization: 'Bearer AUTH_SECRET',
-        'x-forwarded-for': '::1',
-      },
-      method: 'POST',
-    })
-  }
-
-  static externalAuthorized() {
+  externalAuthorized: () => {
     return new NextRequest(new URL('http://internal'), {
       headers: {
         authorization: 'Bearer AUTH_SECRET',
@@ -23,9 +13,9 @@ export default class RequestExamples {
       },
       method: 'POST',
     })
-  }
+  },
 
-  static firewallRequest() {
+  firewallRequest: () => {
     return {
       headers: new Headers({
         authorization: 'Bearer AUTH_SECRET',
@@ -34,5 +24,17 @@ export default class RequestExamples {
       json: jest.fn().mockResolvedValue({ email: 'test@example.com' }),
       method: 'POST',
     } as unknown as NextRequest
-  }
+  },
+
+  internalAuthorized: () => {
+    return new NextRequest(new URL('http://internal'), {
+      headers: {
+        authorization: 'Bearer AUTH_SECRET',
+        'x-forwarded-for': '::1',
+      },
+      method: 'POST',
+    })
+  },
 }
+
+export default RequestExamples

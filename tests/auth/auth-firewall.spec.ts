@@ -3,17 +3,17 @@ import AuthFirewall from '../../src/auth/auth-firewall'
 import RequestExamples from '../features/request.examples'
 
 describe('AuthFirewall', () => {
-  const env = process.env
+  const environment = process.env
 
   beforeEach(() => {
     process.env = {
-      ...env,
+      ...environment,
       AUTH_SECRET: 'AUTH_SECRET',
     }
   })
 
   afterEach(() => {
-    process.env = env
+    process.env = environment
   })
 
   it('should return user roles from email', async () => {

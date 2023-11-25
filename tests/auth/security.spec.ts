@@ -5,7 +5,7 @@ import RequestExamples from '../features/request.examples'
 
 jest.mock('../../src/request/roles-for-session')
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires,unicorn/prefer-module
 const rolesForSession = require('../../src/request/roles-for-session').default
 
 describe('Security', () => {
