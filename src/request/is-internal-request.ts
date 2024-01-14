@@ -1,6 +1,8 @@
 import { NextRequest } from 'next/server'
 
-const INTERNAL_ADDRESS = new Set(['127.0.0.1', '::ffff:127.0.0.1', '::1'])
+const INTERNAL_ADDRESS = process.env.INTERNAL_ADDRESS
+  ? new Set(process.env.INTERNAL_ADDRESS.split(','))
+  : new Set(['127.0.0.1', '::ffff:127.0.0.1', '::1'])
 
 function isInternalRequest(request: NextRequest): boolean {
   const authorization = request.headers.get('authorization')
