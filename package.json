@@ -2,8 +2,7 @@
   "name": "@aulasoftwarelibre/next-auth-firewall",
   "version": "2.0.0",
   "description": "Firewall for NextAuth",
-  "repository": "https://github.com/aulasoftwarelibre/next-auth-firewall",
-  "author": "Sergio Gómez <sergio@uco.es>",
+  "author": "Sergio Gómez <decano@gmail.com>",
   "license": "EUPL-1.2",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -58,5 +57,16 @@
     "typescript-eslint": "^8.11.0",
     "vitest": "^2.1.3"
   },
-  "packageManager": "pnpm@9.12.3"
+  "packageManager": "pnpm@9.12.3",
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/aulasoftwarelibre/next-auth-firewall",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aulasoftwarelibre/next-auth-firewall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aulasoftwarelibre/next-auth-firewall/issues"
+  }
 }
