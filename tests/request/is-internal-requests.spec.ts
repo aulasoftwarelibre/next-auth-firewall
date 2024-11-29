@@ -1,3 +1,5 @@
+import { afterEach, describe, expect, it } from 'vitest'
+
 import { isInternalRequest } from '../../src/request/is-internal-request'
 import RequestExamples from '../features/request.examples'
 

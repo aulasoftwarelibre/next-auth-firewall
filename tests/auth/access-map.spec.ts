@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest'
+
 import AccessMap from '../../src/auth/access-map'
 import RequestMatcherInterface from '../../src/request/request-matcher/request-matcher-interface'
 import RequestExamples from '../features/request.examples'

@@ -1,5 +1,5 @@
-import { Session } from '@auth/core/types'
 import { NextRequest } from 'next/server'
+import { Session } from 'next-auth'
 
 import { NextAuthFirewallConfig } from '../types'
 import Security from './security'

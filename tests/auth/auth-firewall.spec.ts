@@ -1,3 +1,5 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
 import { NextAuthFirewallConfig } from '../../src'
 import AuthFirewall from '../../src/auth/auth-firewall'
 import RequestExamples from '../features/request.examples'
@@ -21,7 +23,7 @@ describe('AuthFirewall', () => {
     const request = RequestExamples.firewallRequest()
 
     const mockAdapter = {
-      getUserByEmail: jest.fn().mockResolvedValue({ roles: ['ROLE_USER'] }),
+      getUserByEmail: vi.fn().mockResolvedValue({ roles: ['ROLE_USER'] }),
     }
 
     const mockConfig = {

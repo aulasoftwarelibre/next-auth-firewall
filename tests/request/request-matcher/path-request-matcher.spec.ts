@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest'
+
 import PathRequestMatcher from '../../../src/request/request-matcher/path-request-matcher'
 import RequestExamples from '../../features/request.examples'
 
