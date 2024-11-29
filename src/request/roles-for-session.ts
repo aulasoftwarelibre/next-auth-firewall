@@ -1,8 +1,8 @@
-import { Session } from '@auth/core/types'
+import { Session } from 'next-auth'
 
 const USER_PROVIDER_URL = `${process.env.AUTH_URL as string}/firewall/`
 
-export default async function rolesForSession(
+export async function rolesForSession(
   auth?: Session | null,
 ): Promise<string[]> {
   const email = auth?.user?.email

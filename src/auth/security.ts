@@ -1,11 +1,11 @@
-import { Session } from '@auth/core/types'
 import { NextRequest } from 'next/server'
+import { Session } from 'next-auth'
 
 import ChainRequestMatcher from '../request/request-matcher/chain-request-matcher'
 import MethodRequestMatcher from '../request/request-matcher/method-request-matcher'
 import PathRequestMatcher from '../request/request-matcher/path-request-matcher'
 import RequestMatcherInterface from '../request/request-matcher/request-matcher-interface'
-import rolesForSession from '../request/roles-for-session'
+import { rolesForSession } from '../request/roles-for-session'
 import { AccessControl } from '../types'
 import AccessMap from './access-map'
 

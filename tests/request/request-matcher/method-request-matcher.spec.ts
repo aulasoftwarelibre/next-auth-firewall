@@ -1,3 +1,5 @@
+import { describe, expect, it } from 'vitest'
+
 import MethodRequestMatcher from '../../../src/request/request-matcher/method-request-matcher'
 import RequestExamples from '../../features/request.examples'
 

@@ -1,29 +1,27 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "baseUrl": ".",
+    "composite": false,
     "declaration": true,
     "declarationMap": true,
-    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
     "isolatedModules": true,
-    "lib": ["esnext"],
-    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "dist/",
-    "skipDefaultLibCheck": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
-    "strictNullChecks": true,
+    "types": ["@types/node", "vitest/globals"],
+    "jsx": "react-jsx",
+    "lib": ["dom", "ES2021"],
+    "module": "ESNext",
+    "target": "ES2018",
     "stripInternal": true,
-    "target": "es2020",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "next-env.d.ts",

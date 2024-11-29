@@ -1,4 +1,5 @@
 import { NextRequest } from 'next/server'
+import { vi } from 'vitest'
 
 const RequestExamples = {
   basic: (path: string = '/', options: { method?: string } = {}) => {
@@ -21,7 +22,7 @@ const RequestExamples = {
         authorization: 'Bearer AUTH_SECRET',
         'x-forwarded-for': '::1',
       }),
-      json: jest.fn().mockResolvedValue({ email: 'test@example.com' }),
+      json: vi.fn().mockResolvedValue({ email: 'test@example.com' }),
       method: 'POST',
     } as unknown as NextRequest
   },

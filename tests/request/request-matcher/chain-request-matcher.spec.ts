@@ -1,9 +1,11 @@
+import { describe, expect, it } from 'vitest'
+
 import ChainRequestMatcher from '../../../src/request/request-matcher/chain-request-matcher'
 import RequestMatcherInterface from '../../../src/request/request-matcher/request-matcher-interface'
 import RequestExamples from '../../features/request.examples'
 
 class MockRequestMatcher implements RequestMatcherInterface {
-  private result: boolean
+  private readonly result: boolean
 
   constructor(result: boolean) {
     this.result = result

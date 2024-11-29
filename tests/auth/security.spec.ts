@@ -1,16 +1,15 @@
-import { Session } from '@auth/core/types'
+import { Session } from 'next-auth'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import Security from '../../src/auth/security'
+import { rolesForSession } from '../../src/request/roles-for-session'
 import RequestExamples from '../features/request.examples'
 
-jest.mock('../../src/request/roles-for-session')
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires,unicorn/prefer-module
-const rolesForSession = require('../../src/request/roles-for-session').default
+vi.mock('../../src/request/roles-for-session')
 
 describe('Security', () => {
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.restoreAllMocks()
   })
 
   const mockAccessControlRules = [
@@ -39,7 +38,7 @@ describe('Security', () => {
 
   it('should authorize access to private access with a session', async () => {
     // Arrange
-    rolesForSession.mockImplementation(async () => ['ROLE_USER'])
+    vi.mocked(rolesForSession).mockImplementation(async () => ['ROLE_USER'])
 
     const mockRequest = RequestExamples.basic('/private')
     const security = new Security({
@@ -58,7 +57,7 @@ describe('Security', () => {
 
   it('should not authorize access to private access without a session', async () => {
     // Arrange
-    rolesForSession.mockImplementation(async () => [])
+    vi.mocked(rolesForSession).mockImplementation(async () => [])
 
     const mockRequest = RequestExamples.basic('/private')
     const security = new Security({
@@ -77,7 +76,7 @@ describe('Security', () => {
 
   it('should not authorize a request with authenticated access and invalid roles', async () => {
     // Arrange
-    rolesForSession.mockImplementation(async () => ['ROLE_USER'])
+    vi.mocked(rolesForSession).mockImplementation(async () => ['ROLE_USER'])
 
     const mockRequest = RequestExamples.basic('/admin')
     const security = new Security({
